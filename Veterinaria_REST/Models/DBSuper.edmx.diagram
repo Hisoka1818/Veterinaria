@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="74fd68bab9ca4e7a9f91f96c28ee084f" Name="Diagram1">
+        <EntityTypeShape EntityType="VETERINARIAPROJECTModel.CIRUGIA" Width="1.5" PointX="5.25" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="VETERINARIAPROJECTModel.CONSULTAMEDICA" Width="1.5" PointX="8.25" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="VETERINARIAPROJECTModel.DETALLESERVICIO" Width="1.5" PointX="7.5" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="VETERINARIAPROJECTModel.ESPECIALIZACION" Width="1.5" PointX="0.75" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VETERINARIAPROJECTModel.ESPECIE" Width="1.5" PointX="0.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VETERINARIAPROJECTModel.FACTURA" Width="1.5" PointX="5.25" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VETERINARIAPROJECTModel.HISTORIA_MEDICA" Width="1.5" PointX="5.25" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="VETERINARIAPROJECTModel.HOSPITALIZACION" Width="1.5" PointX="5.25" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="VETERINARIAPROJECTModel.MASCOTA" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VETERINARIAPROJECTModel.MEDICAMENTO" Width="1.5" PointX="5.25" PointY="22.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VETERINARIAPROJECTModel.PROPIETARIO" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="VETERINARIAPROJECTModel.SERVICIOS_ADICIONALES" Width="1.5" PointX="5.25" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="VETERINARIAPROJECTModel.TIPO_MEDICAMENTO" Width="1.5" PointX="3" PointY="23.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="VETERINARIAPROJECTModel.TRATAMIENTO" Width="1.5" PointX="7.5" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VETERINARIAPROJECTModel.VETERINARIO" Width="1.5" PointX="3" PointY="13.25" IsExpanded="true" />
+        <AssociationConnector Association="VETERINARIAPROJECTModel.FK__CIRUGIA__ID_Masc__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="VETERINARIAPROJECTModel.FK__CIRUGIA__ID_Vete__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="VETERINARIAPROJECTModel.FK__CONSULTAM__ID_Ma__4AB81AF0" ManuallyRouted="false" />
+        <AssociationConnector Association="VETERINARIAPROJECTModel.FK__CONSULTAM__ID_Ve__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="VETERINARIAPROJECTModel.FK__DETALLESE__ID_Fa__5AEE82B9" ManuallyRouted="false" />
+        <AssociationConnector Association="VETERINARIAPROJECTModel.FK__DETALLESE__ID_Se__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="VETERINARIAPROJECTModel.FK__VETERINAR__ID_Es__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="VETERINARIAPROJECTModel.FK__MASCOTA__ID_Espe__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="VETERINARIAPROJECTModel.FK__FACTURA__ID_Masc__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="VETERINARIAPROJECTModel.FK__TRATAMIEN__ID_Fa__5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="VETERINARIAPROJECTModel.FK__HISTORIA___ID_Ma__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="VETERINARIAPROJECTModel.FK__HOSPITALI__ID_Ma__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="VETERINARIAPROJECTModel.FK__MASCOTA__ID_Prop__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="VETERINARIAPROJECTModel.FK__MEDICAMEN__ID_Ti__5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="VETERINARIAPROJECTModel.FK__TRATAMIEN__ID_Me__5FB337D6" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
