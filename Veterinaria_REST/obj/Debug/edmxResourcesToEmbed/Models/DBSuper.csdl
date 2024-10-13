@@ -1,0 +1,436 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="VETERINARIAPROJECTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CIRUGIA">
+    <Key>
+      <PropertyRef Name="ID_Cirugia" />
+    </Key>
+    <Property Name="ID_Cirugia" Type="Int32" Nullable="false" />
+    <Property Name="Fecha_Cirugia" Type="DateTime" Precision="0" />
+    <Property Name="Tipo_Cirugia" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ID_Mascota" Type="Int32" />
+    <Property Name="ID_Veterinario" Type="Int32" />
+    <NavigationProperty Name="MASCOTA" Relationship="Self.FK__CIRUGIA__ID_Masc__5441852A" FromRole="CIRUGIA" ToRole="MASCOTA" />
+    <NavigationProperty Name="VETERINARIO" Relationship="Self.FK__CIRUGIA__ID_Vete__5535A963" FromRole="CIRUGIA" ToRole="VETERINARIO" />
+  </EntityType>
+  <EntityType Name="CONSULTAMEDICA">
+    <Key>
+      <PropertyRef Name="ID_ConsultaMedica" />
+    </Key>
+    <Property Name="ID_ConsultaMedica" Type="Int32" Nullable="false" />
+    <Property Name="Fecha_Cita" Type="DateTime" Precision="0" />
+    <Property Name="Estado" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="ID_Veterinario" Type="Int32" />
+    <Property Name="ID_Mascota" Type="Int32" />
+    <NavigationProperty Name="MASCOTA" Relationship="Self.FK__CONSULTAM__ID_Ma__4AB81AF0" FromRole="CONSULTAMEDICA" ToRole="MASCOTA" />
+    <NavigationProperty Name="VETERINARIO" Relationship="Self.FK__CONSULTAM__ID_Ve__49C3F6B7" FromRole="CONSULTAMEDICA" ToRole="VETERINARIO" />
+  </EntityType>
+  <EntityType Name="DETALLESERVICIO">
+    <Key>
+      <PropertyRef Name="ID_Detalle" />
+    </Key>
+    <Property Name="ID_Detalle" Type="Int32" Nullable="false" />
+    <Property Name="ID_Factura" Type="Int32" />
+    <Property Name="ID_Servicio" Type="Int32" />
+    <NavigationProperty Name="FACTURA" Relationship="Self.FK__DETALLESE__ID_Fa__5AEE82B9" FromRole="DETALLESERVICIO" ToRole="FACTURA" />
+    <NavigationProperty Name="SERVICIOS_ADICIONALES" Relationship="Self.FK__DETALLESE__ID_Se__5BE2A6F2" FromRole="DETALLESERVICIO" ToRole="SERVICIOS_ADICIONALES" />
+  </EntityType>
+  <EntityType Name="ESPECIALIZACION">
+    <Key>
+      <PropertyRef Name="ID_Especializacion" />
+    </Key>
+    <Property Name="ID_Especializacion" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="VETERINARIOs" Relationship="Self.FK__VETERINAR__ID_Es__46E78A0C" FromRole="ESPECIALIZACION" ToRole="VETERINARIO" />
+  </EntityType>
+  <EntityType Name="ESPECIE">
+    <Key>
+      <PropertyRef Name="ID_Especie" />
+    </Key>
+    <Property Name="ID_Especie" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="MASCOTAs" Relationship="Self.FK__MASCOTA__ID_Espe__3C69FB99" FromRole="ESPECIE" ToRole="MASCOTA" />
+  </EntityType>
+  <EntityType Name="FACTURA">
+    <Key>
+      <PropertyRef Name="ID_Factura" />
+    </Key>
+    <Property Name="ID_Factura" Type="Int32" Nullable="false" />
+    <Property Name="FechaCompra" Type="DateTime" Precision="0" />
+    <Property Name="Total" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="ID_Mascota" Type="Int32" />
+    <NavigationProperty Name="DETALLESERVICIOs" Relationship="Self.FK__DETALLESE__ID_Fa__5AEE82B9" FromRole="FACTURA" ToRole="DETALLESERVICIO" />
+    <NavigationProperty Name="MASCOTA" Relationship="Self.FK__FACTURA__ID_Masc__5812160E" FromRole="FACTURA" ToRole="MASCOTA" />
+    <NavigationProperty Name="TRATAMIENTOes" Relationship="Self.FK__TRATAMIEN__ID_Fa__5EBF139D" FromRole="FACTURA" ToRole="TRATAMIENTO" />
+  </EntityType>
+  <EntityType Name="HISTORIA_MEDICA">
+    <Key>
+      <PropertyRef Name="ID_Historia" />
+    </Key>
+    <Property Name="ID_Historia" Type="Int32" Nullable="false" />
+    <Property Name="Fecha_Historia" Type="DateTime" Precision="0" />
+    <Property Name="Diagnostico" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Tratamiento" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Observacion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="ID_Mascota" Type="Int32" />
+    <NavigationProperty Name="MASCOTA" Relationship="Self.FK__HISTORIA___ID_Ma__4222D4EF" FromRole="HISTORIA_MEDICA" ToRole="MASCOTA" />
+  </EntityType>
+  <EntityType Name="HOSPITALIZACION">
+    <Key>
+      <PropertyRef Name="ID_Hospitalizacion" />
+    </Key>
+    <Property Name="ID_Hospitalizacion" Type="Int32" Nullable="false" />
+    <Property Name="Diagnostico" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="FechaIngreso" Type="DateTime" Precision="0" />
+    <Property Name="ID_Mascota" Type="Int32" />
+    <NavigationProperty Name="MASCOTA" Relationship="Self.FK__HOSPITALI__ID_Ma__3F466844" FromRole="HOSPITALIZACION" ToRole="MASCOTA" />
+  </EntityType>
+  <EntityType Name="MASCOTA">
+    <Key>
+      <PropertyRef Name="ID_Mascota" />
+    </Key>
+    <Property Name="ID_Mascota" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Raza" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FechaNacimiento" Type="DateTime" Precision="0" />
+    <Property Name="ID_Especie" Type="Int32" />
+    <Property Name="ID_Propietario" Type="Int32" />
+    <NavigationProperty Name="CIRUGIAs" Relationship="Self.FK__CIRUGIA__ID_Masc__5441852A" FromRole="MASCOTA" ToRole="CIRUGIA" />
+    <NavigationProperty Name="CONSULTAMEDICAs" Relationship="Self.FK__CONSULTAM__ID_Ma__4AB81AF0" FromRole="MASCOTA" ToRole="CONSULTAMEDICA" />
+    <NavigationProperty Name="ESPECIE" Relationship="Self.FK__MASCOTA__ID_Espe__3C69FB99" FromRole="MASCOTA" ToRole="ESPECIE" />
+    <NavigationProperty Name="FACTURAs" Relationship="Self.FK__FACTURA__ID_Masc__5812160E" FromRole="MASCOTA" ToRole="FACTURA" />
+    <NavigationProperty Name="HISTORIA_MEDICA" Relationship="Self.FK__HISTORIA___ID_Ma__4222D4EF" FromRole="MASCOTA" ToRole="HISTORIA_MEDICA" />
+    <NavigationProperty Name="HOSPITALIZACIONs" Relationship="Self.FK__HOSPITALI__ID_Ma__3F466844" FromRole="MASCOTA" ToRole="HOSPITALIZACION" />
+    <NavigationProperty Name="PROPIETARIO" Relationship="Self.FK__MASCOTA__ID_Prop__3B75D760" FromRole="MASCOTA" ToRole="PROPIETARIO" />
+  </EntityType>
+  <EntityType Name="MEDICAMENTO">
+    <Key>
+      <PropertyRef Name="ID_Medicamento" />
+    </Key>
+    <Property Name="ID_Medicamento" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Dosis" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Stock" Type="Int32" />
+    <Property Name="Precio" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="ID_TipoMedicamento" Type="Int32" />
+    <NavigationProperty Name="TIPO_MEDICAMENTO" Relationship="Self.FK__MEDICAMEN__ID_Ti__5165187F" FromRole="MEDICAMENTO" ToRole="TIPO_MEDICAMENTO" />
+    <NavigationProperty Name="TRATAMIENTOes" Relationship="Self.FK__TRATAMIEN__ID_Me__5FB337D6" FromRole="MEDICAMENTO" ToRole="TRATAMIENTO" />
+  </EntityType>
+  <EntityType Name="PROPIETARIO">
+    <Key>
+      <PropertyRef Name="ID_Propietario" />
+    </Key>
+    <Property Name="ID_Propietario" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Correo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Celular" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="MASCOTAs" Relationship="Self.FK__MASCOTA__ID_Prop__3B75D760" FromRole="PROPIETARIO" ToRole="MASCOTA" />
+  </EntityType>
+  <EntityType Name="SERVICIOS_ADICIONALES">
+    <Key>
+      <PropertyRef Name="ID_Servicio" />
+    </Key>
+    <Property Name="ID_Servicio" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Precio" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="DETALLESERVICIOs" Relationship="Self.FK__DETALLESE__ID_Se__5BE2A6F2" FromRole="SERVICIOS_ADICIONALES" ToRole="DETALLESERVICIO" />
+  </EntityType>
+  <EntityType Name="TIPO_MEDICAMENTO">
+    <Key>
+      <PropertyRef Name="ID_TipoMedicamento" />
+    </Key>
+    <Property Name="ID_TipoMedicamento" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="MEDICAMENTOes" Relationship="Self.FK__MEDICAMEN__ID_Ti__5165187F" FromRole="TIPO_MEDICAMENTO" ToRole="MEDICAMENTO" />
+  </EntityType>
+  <EntityType Name="TRATAMIENTO">
+    <Key>
+      <PropertyRef Name="ID_Tratamiento" />
+    </Key>
+    <Property Name="ID_Tratamiento" Type="Int32" Nullable="false" />
+    <Property Name="Fecha_Inicio" Type="DateTime" Precision="0" />
+    <Property Name="Fecha_Fin" Type="DateTime" Precision="0" />
+    <Property Name="Descripcion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="ID_Factura" Type="Int32" />
+    <Property Name="ID_Medicamento" Type="Int32" />
+    <NavigationProperty Name="FACTURA" Relationship="Self.FK__TRATAMIEN__ID_Fa__5EBF139D" FromRole="TRATAMIENTO" ToRole="FACTURA" />
+    <NavigationProperty Name="MEDICAMENTO" Relationship="Self.FK__TRATAMIEN__ID_Me__5FB337D6" FromRole="TRATAMIENTO" ToRole="MEDICAMENTO" />
+  </EntityType>
+  <EntityType Name="VETERINARIO">
+    <Key>
+      <PropertyRef Name="ID_Veterinario" />
+    </Key>
+    <Property Name="ID_Veterinario" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Apellido" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Celular" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="ID_Especializacion" Type="Int32" />
+    <NavigationProperty Name="CIRUGIAs" Relationship="Self.FK__CIRUGIA__ID_Vete__5535A963" FromRole="VETERINARIO" ToRole="CIRUGIA" />
+    <NavigationProperty Name="CONSULTAMEDICAs" Relationship="Self.FK__CONSULTAM__ID_Ve__49C3F6B7" FromRole="VETERINARIO" ToRole="CONSULTAMEDICA" />
+    <NavigationProperty Name="ESPECIALIZACION" Relationship="Self.FK__VETERINAR__ID_Es__46E78A0C" FromRole="VETERINARIO" ToRole="ESPECIALIZACION" />
+  </EntityType>
+  <Association Name="FK__CIRUGIA__ID_Masc__5441852A">
+    <End Role="MASCOTA" Type="Self.MASCOTA" Multiplicity="0..1" />
+    <End Role="CIRUGIA" Type="Self.CIRUGIA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MASCOTA">
+        <PropertyRef Name="ID_Mascota" />
+      </Principal>
+      <Dependent Role="CIRUGIA">
+        <PropertyRef Name="ID_Mascota" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CIRUGIA__ID_Vete__5535A963">
+    <End Role="VETERINARIO" Type="Self.VETERINARIO" Multiplicity="0..1" />
+    <End Role="CIRUGIA" Type="Self.CIRUGIA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VETERINARIO">
+        <PropertyRef Name="ID_Veterinario" />
+      </Principal>
+      <Dependent Role="CIRUGIA">
+        <PropertyRef Name="ID_Veterinario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CONSULTAM__ID_Ma__4AB81AF0">
+    <End Role="MASCOTA" Type="Self.MASCOTA" Multiplicity="0..1" />
+    <End Role="CONSULTAMEDICA" Type="Self.CONSULTAMEDICA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MASCOTA">
+        <PropertyRef Name="ID_Mascota" />
+      </Principal>
+      <Dependent Role="CONSULTAMEDICA">
+        <PropertyRef Name="ID_Mascota" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CONSULTAM__ID_Ve__49C3F6B7">
+    <End Role="VETERINARIO" Type="Self.VETERINARIO" Multiplicity="0..1" />
+    <End Role="CONSULTAMEDICA" Type="Self.CONSULTAMEDICA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VETERINARIO">
+        <PropertyRef Name="ID_Veterinario" />
+      </Principal>
+      <Dependent Role="CONSULTAMEDICA">
+        <PropertyRef Name="ID_Veterinario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DETALLESE__ID_Fa__5AEE82B9">
+    <End Role="FACTURA" Type="Self.FACTURA" Multiplicity="0..1" />
+    <End Role="DETALLESERVICIO" Type="Self.DETALLESERVICIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FACTURA">
+        <PropertyRef Name="ID_Factura" />
+      </Principal>
+      <Dependent Role="DETALLESERVICIO">
+        <PropertyRef Name="ID_Factura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DETALLESE__ID_Se__5BE2A6F2">
+    <End Role="SERVICIOS_ADICIONALES" Type="Self.SERVICIOS_ADICIONALES" Multiplicity="0..1" />
+    <End Role="DETALLESERVICIO" Type="Self.DETALLESERVICIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SERVICIOS_ADICIONALES">
+        <PropertyRef Name="ID_Servicio" />
+      </Principal>
+      <Dependent Role="DETALLESERVICIO">
+        <PropertyRef Name="ID_Servicio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__VETERINAR__ID_Es__46E78A0C">
+    <End Role="ESPECIALIZACION" Type="Self.ESPECIALIZACION" Multiplicity="0..1" />
+    <End Role="VETERINARIO" Type="Self.VETERINARIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESPECIALIZACION">
+        <PropertyRef Name="ID_Especializacion" />
+      </Principal>
+      <Dependent Role="VETERINARIO">
+        <PropertyRef Name="ID_Especializacion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MASCOTA__ID_Espe__3C69FB99">
+    <End Role="ESPECIE" Type="Self.ESPECIE" Multiplicity="0..1" />
+    <End Role="MASCOTA" Type="Self.MASCOTA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESPECIE">
+        <PropertyRef Name="ID_Especie" />
+      </Principal>
+      <Dependent Role="MASCOTA">
+        <PropertyRef Name="ID_Especie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__FACTURA__ID_Masc__5812160E">
+    <End Role="MASCOTA" Type="Self.MASCOTA" Multiplicity="0..1" />
+    <End Role="FACTURA" Type="Self.FACTURA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MASCOTA">
+        <PropertyRef Name="ID_Mascota" />
+      </Principal>
+      <Dependent Role="FACTURA">
+        <PropertyRef Name="ID_Mascota" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TRATAMIEN__ID_Fa__5EBF139D">
+    <End Role="FACTURA" Type="Self.FACTURA" Multiplicity="0..1" />
+    <End Role="TRATAMIENTO" Type="Self.TRATAMIENTO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FACTURA">
+        <PropertyRef Name="ID_Factura" />
+      </Principal>
+      <Dependent Role="TRATAMIENTO">
+        <PropertyRef Name="ID_Factura" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__HISTORIA___ID_Ma__4222D4EF">
+    <End Role="MASCOTA" Type="Self.MASCOTA" Multiplicity="0..1" />
+    <End Role="HISTORIA_MEDICA" Type="Self.HISTORIA_MEDICA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MASCOTA">
+        <PropertyRef Name="ID_Mascota" />
+      </Principal>
+      <Dependent Role="HISTORIA_MEDICA">
+        <PropertyRef Name="ID_Mascota" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__HOSPITALI__ID_Ma__3F466844">
+    <End Role="MASCOTA" Type="Self.MASCOTA" Multiplicity="0..1" />
+    <End Role="HOSPITALIZACION" Type="Self.HOSPITALIZACION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MASCOTA">
+        <PropertyRef Name="ID_Mascota" />
+      </Principal>
+      <Dependent Role="HOSPITALIZACION">
+        <PropertyRef Name="ID_Mascota" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MASCOTA__ID_Prop__3B75D760">
+    <End Role="PROPIETARIO" Type="Self.PROPIETARIO" Multiplicity="0..1" />
+    <End Role="MASCOTA" Type="Self.MASCOTA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROPIETARIO">
+        <PropertyRef Name="ID_Propietario" />
+      </Principal>
+      <Dependent Role="MASCOTA">
+        <PropertyRef Name="ID_Propietario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MEDICAMEN__ID_Ti__5165187F">
+    <End Role="TIPO_MEDICAMENTO" Type="Self.TIPO_MEDICAMENTO" Multiplicity="0..1" />
+    <End Role="MEDICAMENTO" Type="Self.MEDICAMENTO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TIPO_MEDICAMENTO">
+        <PropertyRef Name="ID_TipoMedicamento" />
+      </Principal>
+      <Dependent Role="MEDICAMENTO">
+        <PropertyRef Name="ID_TipoMedicamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TRATAMIEN__ID_Me__5FB337D6">
+    <End Role="MEDICAMENTO" Type="Self.MEDICAMENTO" Multiplicity="0..1" />
+    <End Role="TRATAMIENTO" Type="Self.TRATAMIENTO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MEDICAMENTO">
+        <PropertyRef Name="ID_Medicamento" />
+      </Principal>
+      <Dependent Role="TRATAMIENTO">
+        <PropertyRef Name="ID_Medicamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="VETERINARIAPROJECTEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CIRUGIAs" EntityType="Self.CIRUGIA" />
+    <EntitySet Name="CONSULTAMEDICAs" EntityType="Self.CONSULTAMEDICA" />
+    <EntitySet Name="DETALLESERVICIOs" EntityType="Self.DETALLESERVICIO" />
+    <EntitySet Name="ESPECIALIZACIONs" EntityType="Self.ESPECIALIZACION" />
+    <EntitySet Name="ESPECIEs" EntityType="Self.ESPECIE" />
+    <EntitySet Name="FACTURAs" EntityType="Self.FACTURA" />
+    <EntitySet Name="HISTORIA_MEDICA" EntityType="Self.HISTORIA_MEDICA" />
+    <EntitySet Name="HOSPITALIZACIONs" EntityType="Self.HOSPITALIZACION" />
+    <EntitySet Name="MASCOTAs" EntityType="Self.MASCOTA" />
+    <EntitySet Name="MEDICAMENTOes" EntityType="Self.MEDICAMENTO" />
+    <EntitySet Name="PROPIETARIOs" EntityType="Self.PROPIETARIO" />
+    <EntitySet Name="SERVICIOS_ADICIONALES" EntityType="Self.SERVICIOS_ADICIONALES" />
+    <EntitySet Name="TIPO_MEDICAMENTO" EntityType="Self.TIPO_MEDICAMENTO" />
+    <EntitySet Name="TRATAMIENTOes" EntityType="Self.TRATAMIENTO" />
+    <EntitySet Name="VETERINARIOs" EntityType="Self.VETERINARIO" />
+    <AssociationSet Name="FK__CIRUGIA__ID_Masc__5441852A" Association="Self.FK__CIRUGIA__ID_Masc__5441852A">
+      <End Role="MASCOTA" EntitySet="MASCOTAs" />
+      <End Role="CIRUGIA" EntitySet="CIRUGIAs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CIRUGIA__ID_Vete__5535A963" Association="Self.FK__CIRUGIA__ID_Vete__5535A963">
+      <End Role="VETERINARIO" EntitySet="VETERINARIOs" />
+      <End Role="CIRUGIA" EntitySet="CIRUGIAs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CONSULTAM__ID_Ma__4AB81AF0" Association="Self.FK__CONSULTAM__ID_Ma__4AB81AF0">
+      <End Role="MASCOTA" EntitySet="MASCOTAs" />
+      <End Role="CONSULTAMEDICA" EntitySet="CONSULTAMEDICAs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CONSULTAM__ID_Ve__49C3F6B7" Association="Self.FK__CONSULTAM__ID_Ve__49C3F6B7">
+      <End Role="VETERINARIO" EntitySet="VETERINARIOs" />
+      <End Role="CONSULTAMEDICA" EntitySet="CONSULTAMEDICAs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DETALLESE__ID_Fa__5AEE82B9" Association="Self.FK__DETALLESE__ID_Fa__5AEE82B9">
+      <End Role="FACTURA" EntitySet="FACTURAs" />
+      <End Role="DETALLESERVICIO" EntitySet="DETALLESERVICIOs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DETALLESE__ID_Se__5BE2A6F2" Association="Self.FK__DETALLESE__ID_Se__5BE2A6F2">
+      <End Role="SERVICIOS_ADICIONALES" EntitySet="SERVICIOS_ADICIONALES" />
+      <End Role="DETALLESERVICIO" EntitySet="DETALLESERVICIOs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__VETERINAR__ID_Es__46E78A0C" Association="Self.FK__VETERINAR__ID_Es__46E78A0C">
+      <End Role="ESPECIALIZACION" EntitySet="ESPECIALIZACIONs" />
+      <End Role="VETERINARIO" EntitySet="VETERINARIOs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MASCOTA__ID_Espe__3C69FB99" Association="Self.FK__MASCOTA__ID_Espe__3C69FB99">
+      <End Role="ESPECIE" EntitySet="ESPECIEs" />
+      <End Role="MASCOTA" EntitySet="MASCOTAs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__FACTURA__ID_Masc__5812160E" Association="Self.FK__FACTURA__ID_Masc__5812160E">
+      <End Role="MASCOTA" EntitySet="MASCOTAs" />
+      <End Role="FACTURA" EntitySet="FACTURAs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TRATAMIEN__ID_Fa__5EBF139D" Association="Self.FK__TRATAMIEN__ID_Fa__5EBF139D">
+      <End Role="FACTURA" EntitySet="FACTURAs" />
+      <End Role="TRATAMIENTO" EntitySet="TRATAMIENTOes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__HISTORIA___ID_Ma__4222D4EF" Association="Self.FK__HISTORIA___ID_Ma__4222D4EF">
+      <End Role="MASCOTA" EntitySet="MASCOTAs" />
+      <End Role="HISTORIA_MEDICA" EntitySet="HISTORIA_MEDICA" />
+    </AssociationSet>
+    <AssociationSet Name="FK__HOSPITALI__ID_Ma__3F466844" Association="Self.FK__HOSPITALI__ID_Ma__3F466844">
+      <End Role="MASCOTA" EntitySet="MASCOTAs" />
+      <End Role="HOSPITALIZACION" EntitySet="HOSPITALIZACIONs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MASCOTA__ID_Prop__3B75D760" Association="Self.FK__MASCOTA__ID_Prop__3B75D760">
+      <End Role="PROPIETARIO" EntitySet="PROPIETARIOs" />
+      <End Role="MASCOTA" EntitySet="MASCOTAs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MEDICAMEN__ID_Ti__5165187F" Association="Self.FK__MEDICAMEN__ID_Ti__5165187F">
+      <End Role="TIPO_MEDICAMENTO" EntitySet="TIPO_MEDICAMENTO" />
+      <End Role="MEDICAMENTO" EntitySet="MEDICAMENTOes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TRATAMIEN__ID_Me__5FB337D6" Association="Self.FK__TRATAMIEN__ID_Me__5FB337D6">
+      <End Role="MEDICAMENTO" EntitySet="MEDICAMENTOes" />
+      <End Role="TRATAMIENTO" EntitySet="TRATAMIENTOes" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

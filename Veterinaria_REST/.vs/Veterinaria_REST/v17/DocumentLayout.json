@@ -1,7 +1,28 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\Documents\\Universidad\\Veterinaria\\Veterinaria_REST\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{129816C7-2827-4993-9434-F081B1B1607E}|Veterinaria_REST.csproj|d:\\documents\\universidad\\veterinaria\\veterinaria_rest\\models\\medicamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{129816C7-2827-4993-9434-F081B1B1607E}|Veterinaria_REST.csproj|solutionrelative:models\\medicamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{129816C7-2827-4993-9434-F081B1B1607E}|Veterinaria_REST.csproj|d:\\documents\\universidad\\veterinaria\\veterinaria_rest\\clases\\clstipomedicamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{129816C7-2827-4993-9434-F081B1B1607E}|Veterinaria_REST.csproj|solutionrelative:clases\\clstipomedicamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{129816C7-2827-4993-9434-F081B1B1607E}|Veterinaria_REST.csproj|d:\\documents\\universidad\\veterinaria\\veterinaria_rest\\controllers\\tipomedicamentoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{129816C7-2827-4993-9434-F081B1B1607E}|Veterinaria_REST.csproj|solutionrelative:controllers\\tipomedicamentoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{129816C7-2827-4993-9434-F081B1B1607E}|Veterinaria_REST.csproj|d:\\documents\\universidad\\veterinaria\\veterinaria_rest\\controllers\\medicamentoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{129816C7-2827-4993-9434-F081B1B1607E}|Veterinaria_REST.csproj|solutionrelative:controllers\\medicamentoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{129816C7-2827-4993-9434-F081B1B1607E}|Veterinaria_REST.csproj|d:\\documents\\universidad\\veterinaria\\veterinaria_rest\\clases\\clsmedicamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{129816C7-2827-4993-9434-F081B1B1607E}|Veterinaria_REST.csproj|solutionrelative:clases\\clsmedicamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,11 +30,76 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MEDICAMENTO.cs",
+              "DocumentMoniker": "D:\\Documents\\Universidad\\Veterinaria\\Veterinaria_REST\\Models\\MEDICAMENTO.cs",
+              "RelativeDocumentMoniker": "Models\\MEDICAMENTO.cs",
+              "ToolTip": "D:\\Documents\\Universidad\\Veterinaria\\Veterinaria_REST\\Models\\MEDICAMENTO.cs",
+              "RelativeToolTip": "Models\\MEDICAMENTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-13T17:19:47.234Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "clsTipoMedicamento.cs",
+              "DocumentMoniker": "D:\\Documents\\Universidad\\Veterinaria\\Veterinaria_REST\\Clases\\clsTipoMedicamento.cs",
+              "RelativeDocumentMoniker": "Clases\\clsTipoMedicamento.cs",
+              "ToolTip": "D:\\Documents\\Universidad\\Veterinaria\\Veterinaria_REST\\Clases\\clsTipoMedicamento.cs",
+              "RelativeToolTip": "Clases\\clsTipoMedicamento.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFsAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-13T15:40:41.764Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "clsMedicamento.cs",
+              "DocumentMoniker": "D:\\Documents\\Universidad\\Veterinaria\\Veterinaria_REST\\Clases\\clsMedicamento.cs",
+              "RelativeDocumentMoniker": "Clases\\clsMedicamento.cs",
+              "ToolTip": "D:\\Documents\\Universidad\\Veterinaria\\Veterinaria_REST\\Clases\\clsMedicamento.cs",
+              "RelativeToolTip": "Clases\\clsMedicamento.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-13T15:40:05.036Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TipoMedicamentosController.cs",
+              "DocumentMoniker": "D:\\Documents\\Universidad\\Veterinaria\\Veterinaria_REST\\Controllers\\TipoMedicamentosController.cs",
+              "RelativeDocumentMoniker": "Controllers\\TipoMedicamentosController.cs",
+              "ToolTip": "D:\\Documents\\Universidad\\Veterinaria\\Veterinaria_REST\\Controllers\\TipoMedicamentosController.cs",
+              "RelativeToolTip": "Controllers\\TipoMedicamentosController.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAADIAAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-13T16:49:29.49Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MedicamentosController.cs",
+              "DocumentMoniker": "D:\\Documents\\Universidad\\Veterinaria\\Veterinaria_REST\\Controllers\\MedicamentosController.cs",
+              "RelativeDocumentMoniker": "Controllers\\MedicamentosController.cs",
+              "ToolTip": "D:\\Documents\\Universidad\\Veterinaria\\Veterinaria_REST\\Controllers\\MedicamentosController.cs",
+              "RelativeToolTip": "Controllers\\MedicamentosController.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAACoAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-13T16:48:58.697Z",
+              "EditorCaption": ""
             }
           ]
         }

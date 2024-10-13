@@ -162,20 +162,74 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Clases\clsMedicamento.cs" />
+    <Compile Include="Clases\clsTipoMedicamento.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MedicamentosController.cs" />
+    <Compile Include="Controllers\TipoMedicamentosController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CIRUGIA.cs">
+      <DependentUpon>DBSuper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CONSULTAMEDICA.cs">
+      <DependentUpon>DBSuper.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DBSuper.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DBSuper.Context.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DBSuper.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBSuper.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DBSuper.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DBSuper.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DETALLESERVICIO.cs">
+      <DependentUpon>DBSuper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ESPECIALIZACION.cs">
+      <DependentUpon>DBSuper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ESPECIE.cs">
+      <DependentUpon>DBSuper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FACTURA.cs">
+      <DependentUpon>DBSuper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HISTORIA_MEDICA.cs">
+      <DependentUpon>DBSuper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HOSPITALIZACION.cs">
+      <DependentUpon>DBSuper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MASCOTA.cs">
+      <DependentUpon>DBSuper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MEDICAMENTO.cs">
+      <DependentUpon>DBSuper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PROPIETARIO.cs">
+      <DependentUpon>DBSuper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SERVICIOS_ADICIONALES.cs">
+      <DependentUpon>DBSuper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TIPO_MEDICAMENTO.cs">
+      <DependentUpon>DBSuper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TRATAMIENTO.cs">
+      <DependentUpon>DBSuper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VETERINARIO.cs">
+      <DependentUpon>DBSuper.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -202,6 +256,12 @@
     <Content Include="Models\DBSuper.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>DBSuper.Context.cs</LastGenOutput>
+      <DependentUpon>DBSuper.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\DBSuper.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DBSuper.edmx</DependentUpon>
+      <LastGenOutput>DBSuper.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -232,9 +292,9 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DBSuper.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Models\DBSuper.edmx.diagram">
+    <Content Include="Models\DBSuper.edmx.diagram">
       <DependentUpon>DBSuper.edmx</DependentUpon>
-    </None>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
