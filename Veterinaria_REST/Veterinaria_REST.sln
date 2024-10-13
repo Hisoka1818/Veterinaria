@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34607.119
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Veterinaria_REST", "Veterinaria_REST.csproj", "{129816C7-2827-4993-9434-F081B1B1607E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{129816C7-2827-4993-9434-F081B1B1607E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{129816C7-2827-4993-9434-F081B1B1607E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{129816C7-2827-4993-9434-F081B1B1607E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{129816C7-2827-4993-9434-F081B1B1607E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E49AA951-7EF6-40A1-B6D9-0993BEE90FEB}
+	EndGlobalSection
+EndGlobal
