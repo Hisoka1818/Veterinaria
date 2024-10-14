@@ -22,7 +22,7 @@ class VETERINARIO {
 async function EjecutarComando(Metodo, Funcion) {
     let URL = "https://localhost:44362/api/Veterinario/" + Funcion;
     const veterinario = new VETERINARIO($("#txtID_Veterinario").val(), $("#txtNombre").val(), $("#txtApellido").val(), $("#txtCelular").val(), $("#cboEspecializacion").val());
-    await EjecutarServicio(Metodo, URL, veterinario);
+    await EjecutarComandoServicio(Metodo, URL, veterinario);
     LlenarTabla();
 }
 async function Consultar() {

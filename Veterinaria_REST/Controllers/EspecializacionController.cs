@@ -23,8 +23,8 @@ namespace Veterinaria_REST.Controllers
         }
 
         [HttpPost]
-        [Route("insertar")]
-        public string insertar([FromBody] ESPECIALIZACION especializacion)
+        [Route("Insertar")]
+        public string Insertar([FromBody] ESPECIALIZACION especializacion)
         {
             clsEspecializacion _especializacion = new clsEspecializacion();
             _especializacion.especializacion = especializacion;

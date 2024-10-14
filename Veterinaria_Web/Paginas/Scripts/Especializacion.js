@@ -19,9 +19,10 @@ class ESPECIALIZACION {
 async function EjecutarComando(Metodo, Funcion) {
     let URL = "https://localhost:44362/api/Especializacion/" + Funcion;
     const especializacion = new ESPECIALIZACION($("#txtCodigo").val(), $("#txtNombre").val(), $("#txtDescripcion").val());
-    await EjecutarServicio(Metodo, URL, especializacion);
+    await EjecutarComandoServicio(Metodo, URL, especializacion);
     LlenarTabla();
 }
+
 async function Consultar() {
     let Codigo = $("#txtCodigo").val();
     let URL = "https://localhost:44362/api/Especializacion/ConsultarxCodigo?codigo=" + Codigo;
