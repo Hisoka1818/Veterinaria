@@ -9,6 +9,7 @@
 
 namespace Veterinaria_REST.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -26,11 +27,14 @@ namespace Veterinaria_REST.Models
         public string Apellido { get; set; }
         public string Celular { get; set; }
         public Nullable<int> ID_Especializacion { get; set; }
-    
+
+        [JsonIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CIRUGIA> CIRUGIAs { get; set; }
+        [JsonIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CONSULTAMEDICA> CONSULTAMEDICAs { get; set; }
+        [JsonIgnore]
         public virtual ESPECIALIZACION ESPECIALIZACION { get; set; }
     }
 }

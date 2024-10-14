@@ -4,11 +4,14 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using Veterinaria_REST.Clases;
 using Veterinaria_REST.Models;
 
 namespace Veterinaria_REST.Controllers
 {
+    [EnableCors(origins: "https://localhost:44322", headers: "*", methods: "*")]
+    [RoutePrefix("api/Medicamentos")]
     public class MedicamentosController : ApiController
     {
         [HttpGet]

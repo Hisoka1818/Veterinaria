@@ -80,15 +80,14 @@ namespace Veterinaria_REST.Clases
 
             return from m in dbSuper.Set<MEDICAMENTO>()
                    join t in dbSuper.Set<TIPO_MEDICAMENTO>()
-                   on m.ID_Medicamento equals t.ID_TipoMedicamento
-                   orderby m.Nombre, t.Nombre
+                   on m.ID_TipoMedicamento equals t.ID_TipoMedicamento
                    select new
                    {
                        Id_Medicamento = m.ID_Medicamento,
-                       Nombre = m.Nombre,
-                       Descripcion = m.Descripcion,
-                       Dosis = m.Dosis,
-                       Stok = m.Stock,
+                       Nombre_Medicamento = m.Nombre,
+                       Descripcion_Medicamento = m.Descripcion,
+                       Dosis_Medicamento = m.Dosis,
+                       Stock_Medicamento = m.Stock,
                        Precio_Unidad = m.Precio,
                        Id_Tipo_Medicamento = t.ID_TipoMedicamento,
                        NombreTipo = t.Nombre,

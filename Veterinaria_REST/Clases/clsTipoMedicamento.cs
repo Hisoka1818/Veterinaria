@@ -66,7 +66,7 @@ namespace Veterinaria_REST.Clases
                 TIPO_MEDICAMENTO _tipoMedicamento = Consultar(tipoMedicamento.ID_TipoMedicamento);
                 if (_tipoMedicamento != null)
                 {
-                    dbSuper.TIPO_MEDICAMENTO.Remove(tipoMedicamento);
+                    dbSuper.TIPO_MEDICAMENTO.Remove(_tipoMedicamento);
                     dbSuper.SaveChanges();
                     return "El tipo de medicamento: " + tipoMedicamento.Nombre + " se elimino con exito";
                 }
@@ -81,12 +81,26 @@ namespace Veterinaria_REST.Clases
             }
         }
 
-        public List<TIPO_MEDICAMENTO> LlenarCombo()
+        public IQueryable LlenarCombo()
         {
-            return dbSuper.TIPO_MEDICAMENTO
-                .OrderBy(t => t.Nombre)
-                .ToList();
+            return from t in dbSuper.Set<TIPO_MEDICAMENTO>()
+                   select new
+                   {
+                       Codigo = t.ID_TipoMedicamento,
+                       Nombre = t.Nombre,
+                   };
         }
 
+        public IQueryable LlenarTabla()
+        {
+            return from t in dbSuper.Set<TIPO_MEDICAMENTO>()
+                   select new
+                   {
+                       ID_tipoMedicamento = t.ID_TipoMedicamento,
+                       Nombre_Tipo = t.Nombre,
+                       Descripcion_Tipo = t.Descripcion,
+                   };
+                
+        }
     }
 }
