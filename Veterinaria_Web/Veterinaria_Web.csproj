@@ -160,6 +160,8 @@
     <Content Include="Paginas\Estilos\webfonts\fa-brands-400.svg" />
     <Content Include="Paginas\Estilos\webfonts\fa-regular-400.svg" />
     <Content Include="Paginas\Estilos\webfonts\fa-solid-900.svg" />
+    <Content Include="Paginas\Imagenes\MedicamentoFondo.jpg" />
+    <Content Include="Paginas\Imagenes\VETCARE.jpeg" />
     <Content Include="Paginas\Medicamentos.html" />
     <Content Include="Paginas\Menu.html" />
     <Content Include="Paginas\Pagina1.html" />
