@@ -69,7 +69,7 @@ namespace Veterinaria_REST.Clases
                 return e.Message;
             }
         }
-        public IQueryable Llenartablaconespecializacion() 
+        public IQueryable LlenarTabla() 
         {
             return from V in DBSuper.Set<VETERINARIO>()
                    join E in DBSuper.Set<ESPECIALIZACION>()

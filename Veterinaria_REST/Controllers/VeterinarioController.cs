@@ -7,7 +7,7 @@ using Veterinaria_REST.Models;
 
 namespace Veterinaria_REST.Controllers
 {
-    [RoutePrefix("api/veterinarios")]
+    [RoutePrefix("api/Veterinario")]
     [EnableCors(origins: "https://localhost:44322", headers: "*", methods: "*")]
     public class VeterinarioController : ApiController
     {
@@ -47,11 +47,11 @@ namespace Veterinaria_REST.Controllers
         }
 
         [HttpGet]
-        [Route("Listarveterinarios")]
-        public IQueryable Listarveterinarios()
+        [Route("LlenarTabla")]
+        public IQueryable LlenarTabla()
         {
             clsVeterinario _veterinario = new clsVeterinario();
-            return _veterinario.Llenartablaconespecializacion();
+            return _veterinario.LlenarTabla();
         }
     }
 }

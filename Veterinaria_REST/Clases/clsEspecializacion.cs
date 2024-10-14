@@ -65,7 +65,7 @@ namespace Veterinaria_REST.Clases
                 return e.Message;
             }
         }
-        public IQueryable llenarCombo()
+        public IQueryable LlenarCombo()
         {
             return from C in DBSuper.Set<ESPECIALIZACION>()
                    orderby C.Nombre
@@ -75,9 +75,15 @@ namespace Veterinaria_REST.Clases
                        Nombre = C.Nombre
                    };
         }
-        public List<ESPECIALIZACION> llenartablaespecializacion()
+        public IQueryable LlenarTabla()
         {
-            return DBSuper.ESPECIALIZACIONs.OrderBy(e => e.Nombre).ToList();
+            return from e in DBSuper.Set<ESPECIALIZACION>()
+                   select new
+                   {
+                       ID_Especializacion = e.ID_Especializacion,
+                       Nombre = e.Nombre,
+                       Descripcion = e.Descripcion,
+                   };
         }
     }
 }

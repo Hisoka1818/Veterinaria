@@ -1,12 +1,12 @@
 ﻿$(function () {
     //Se ejecuta al cargar la página 
-    LlenarComboXServicios("https://localhost:44362/api/especializacion/llenarCombo", "#cboEspecializacion");
+    LlenarComboXServicios("https://localhost:44362/api/Especializacion/LlenarCombo", "#cboEspecializacion");
     LlenarTabla();
 });
 
 
 function LlenarTabla() {
-    LlenarTablaXServicios("https://localhost:44362/api/veterinarios/Listarveterinarios", "#tblEspecializacion");
+    LlenarTablaXServicios("https://localhost:44362/api/Veterinario/LlenarTabla", "#tblEspecializacion");
 }
 
 class VETERINARIO {
@@ -20,14 +20,14 @@ class VETERINARIO {
 }
 
 async function EjecutarComando(Metodo, Funcion) {
-    let URL = "https://localhost:44362/api/veterinarios/" + Funcion;
+    let URL = "https://localhost:44362/api/Veterinario/" + Funcion;
     const veterinario = new VETERINARIO($("#txtID_Veterinario").val(), $("#txtNombre").val(), $("#txtApellido").val(), $("#txtCelular").val(), $("#cboEspecializacion").val());
     await EjecutarServicio(Metodo, URL, veterinario);
     LlenarTabla();
 }
 async function Consultar() {
     let Codigo = $("#txtID_Veterinario").val();
-    let URL = "https://localhost:44362/api/veterinarios/consultar?codigo=" + Codigo;
+    let URL = "https://localhost:44362/api/Veterinario/consultar?codigo=" + Codigo;
     const veterinario = await ConsultarServicio(URL);
     if (veterinario == null) {
         $("#dvMensaje").html("El código del veterinario no existe en la base de datos");

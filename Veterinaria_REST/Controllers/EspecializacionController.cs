@@ -15,8 +15,8 @@ namespace Veterinaria_REST.Controllers
     public class EspecializacionController : ApiController
     {
         [HttpGet]
-        [Route("consultar")]
-        public ESPECIALIZACION consultar(int codigo)
+        [Route("ConsultarxCodigo")]
+        public ESPECIALIZACION ConsultarxCodigo(int codigo)
         {
             clsEspecializacion _especializacion = new clsEspecializacion();
             return _especializacion.Consultar(codigo);
@@ -50,19 +50,19 @@ namespace Veterinaria_REST.Controllers
         }
 
         [HttpGet]
-        [Route("llenarCombo")]
-        public IQueryable llenarCombo()
+        [Route("LlenarCombo")]
+        public IQueryable LlenarCombo()
         {
             clsEspecializacion _especializacion = new clsEspecializacion();
-            return _especializacion.llenarCombo();
+            return _especializacion.LlenarCombo();
         }
 
         [HttpGet]
-        [Route("llenartabla")]
-        public List<ESPECIALIZACION> llenartabla()
+        [Route("LlenarTabla")]
+        public IQueryable LlenarTabla()
         {
             clsEspecializacion _especializacion = new clsEspecializacion();
-            return _especializacion.llenartablaespecializacion();
+            return _especializacion.LlenarTabla();
         }
     }
 }

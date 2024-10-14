@@ -4,7 +4,7 @@
 
 
 function LlenarTabla() {
-    LlenarTablaXServicios("https://localhost:44362/api/veterinarios/llenartabla", "#tblespecializacion");
+    LlenarTablaXServicios("https://localhost:44362/api/Especializacion/LlenarTabla", "#tblespecializacion");
 }
 
 class ESPECIALIZACION {
@@ -24,7 +24,7 @@ async function EjecutarComando(Metodo, Funcion) {
 }
 async function Consultar() {
     let Codigo = $("#txtCodigo").val();
-    let URL = "https://localhost:44362/api/Especializacion/consultar?codigo=" + Codigo;
+    let URL = "https://localhost:44362/api/Especializacion/ConsultarxCodigo?codigo=" + Codigo;
     const especializacion = await ConsultarServicio(URL);
     if (especializacion == null) {
         $("#dvMensaje").html("El código de la especializacion no existe en la base de datos");
