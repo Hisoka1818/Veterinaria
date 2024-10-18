@@ -53,7 +53,7 @@ async function LlenarComboXServicios(URLServicio, ComboLlenar) {
             });
         const Rpta = await Respuesta.json();
         //Se debe limpiar el combo
-        $(ComboLlenar).empty();
+        //$(ComboLlenar).empty();
         //Se recorre en un ciclo para llenar el select con la información
         for (i = 0; i < Rpta.length; i++) {
             $(ComboLlenar).append('<option value=' + Rpta[i].Codigo + '>' + Rpta[i].Nombre + '</option>');

@@ -3,7 +3,7 @@
   "WorkspaceRootPath": "D:\\Documents\\Universidad\\Veterinaria\\Veterinaria_REST\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{129816C7-2827-4993-9434-F081B1B1607E}|Veterinaria_REST.csproj|D:\\Documents\\Universidad\\Veterinaria\\Veterinaria_REST\\clases\\clsespecializacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{129816C7-2827-4993-9434-F081B1B1607E}|Veterinaria_REST.csproj|d:\\documents\\universidad\\veterinaria\\veterinaria_rest\\clases\\clsespecializacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{129816C7-2827-4993-9434-F081B1B1607E}|Veterinaria_REST.csproj|solutionrelative:clases\\clsespecializacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -15,7 +15,7 @@
       "RelativeMoniker": "D:0:0:{129816C7-2827-4993-9434-F081B1B1607E}|Veterinaria_REST.csproj|solutionrelative:controllers\\veterinariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{129816C7-2827-4993-9434-F081B1B1607E}|Veterinaria_REST.csproj|d:\\documents\\universidad\\veterinaria\\veterinaria_rest\\controllers\\medicamentoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{129816C7-2827-4993-9434-F081B1B1607E}|Veterinaria_REST.csproj|D:\\Documents\\Universidad\\Veterinaria\\Veterinaria_REST\\controllers\\medicamentoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{129816C7-2827-4993-9434-F081B1B1607E}|Veterinaria_REST.csproj|solutionrelative:controllers\\medicamentoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -42,8 +42,7 @@
               "RelativeToolTip": "Controllers\\EspecializacionController.cs",
               "ViewState": "AQIAAAYAAAAAAAAAAAAAABwAAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-14T04:17:15.38Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-14T04:17:15.38Z"
             },
             {
               "$type": "Document",
@@ -55,8 +54,7 @@
               "RelativeToolTip": "Controllers\\MedicamentosController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-14T15:02:24.223Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-14T15:02:24.223Z"
             },
             {
               "$type": "Document",
@@ -66,7 +64,7 @@
               "RelativeDocumentMoniker": "Clases\\clsEspecializacion.cs",
               "ToolTip": "D:\\Documents\\Universidad\\Veterinaria\\Veterinaria_REST\\Clases\\clsEspecializacion.cs",
               "RelativeToolTip": "Clases\\clsEspecializacion.cs",
-              "ViewState": "AQIAAC0AAAAAAAAAAAAAADkAAABCAAAA",
+              "ViewState": "AQIAACEAAAAAAAAAAAAAAEAAAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-14T04:14:57.108Z",
               "EditorCaption": ""
@@ -81,8 +79,7 @@
               "RelativeToolTip": "Controllers\\VeterinarioController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAADgAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-14T01:26:56.144Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-14T01:26:56.144Z"
             }
           ]
         }

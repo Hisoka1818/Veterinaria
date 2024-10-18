@@ -9,6 +9,7 @@
 
 namespace Veterinaria_REST.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -23,7 +24,8 @@ namespace Veterinaria_REST.Models
         public int ID_Especie { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
-    
+
+        [JsonIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MASCOTA> MASCOTAs { get; set; }
     }
