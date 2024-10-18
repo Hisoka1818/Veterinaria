@@ -9,6 +9,7 @@
 
 namespace Veterinaria_REST.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -30,18 +31,31 @@ namespace Veterinaria_REST.Models
         public Nullable<System.DateTime> FechaNacimiento { get; set; }
         public Nullable<int> ID_Especie { get; set; }
         public Nullable<int> ID_Propietario { get; set; }
-    
+
+        [JsonIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CIRUGIA> CIRUGIAs { get; set; }
+
+        [JsonIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CONSULTAMEDICA> CONSULTAMEDICAs { get; set; }
+
+        [JsonIgnore]
         public virtual ESPECIE ESPECIE { get; set; }
+
+        [JsonIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<FACTURA> FACTURAs { get; set; }
+
+        [JsonIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HISTORIA_MEDICA> HISTORIA_MEDICA { get; set; }
+
+        [JsonIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HOSPITALIZACION> HOSPITALIZACIONs { get; set; }
+
+        [JsonIgnore]
         public virtual PROPIETARIO PROPIETARIO { get; set; }
     }
 }

@@ -3,6 +3,7 @@
   "WorkspaceRootPath": "D:\\Documents\\Universidad\\Veterinaria\\Veterinaria_REST\\",
   "Documents": [
     {
+<<<<<<< HEAD
       "AbsoluteMoniker": "D:0:0:{129816C7-2827-4993-9434-F081B1B1607E}|Veterinaria_REST.csproj|D:\\Documents\\Universidad\\Veterinaria\\Veterinaria_REST\\clases\\clsespecializacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{129816C7-2827-4993-9434-F081B1B1607E}|Veterinaria_REST.csproj|solutionrelative:clases\\clsespecializacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -17,6 +18,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{129816C7-2827-4993-9434-F081B1B1607E}|Veterinaria_REST.csproj|d:\\documents\\universidad\\veterinaria\\veterinaria_rest\\controllers\\medicamentoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{129816C7-2827-4993-9434-F081B1B1607E}|Veterinaria_REST.csproj|solutionrelative:controllers\\medicamentoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+=======
+      "AbsoluteMoniker": "D:0:0:{129816C7-2827-4993-9434-F081B1B1607E}|Veterinaria_REST.csproj|d:\\documents\\universidad\\veterinaria\\veterinaria_rest\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{129816C7-2827-4993-9434-F081B1B1607E}|Veterinaria_REST.csproj|solutionrelative:web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+>>>>>>> parent of e3baf1d (1)
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +31,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,6 +39,7 @@
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 1,
               "Title": "EspecializacionController.cs",
               "DocumentMoniker": "D:\\Documents\\Universidad\\Veterinaria\\Veterinaria_REST\\Controllers\\EspecializacionController.cs",
@@ -83,6 +89,18 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-14T01:26:56.144Z",
               "EditorCaption": ""
+=======
+              "DocumentIndex": 0,
+              "Title": "Web.config",
+              "DocumentMoniker": "D:\\Documents\\Universidad\\Veterinaria\\Veterinaria_REST\\Web.config",
+              "RelativeDocumentMoniker": "Web.config",
+              "ToolTip": "D:\\Documents\\Universidad\\Veterinaria\\Veterinaria_REST\\Web.config",
+              "RelativeToolTip": "Web.config",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEMAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-10-17T21:25:48.782Z",
+              "EditorCaption": ""
+>>>>>>> parent of e3baf1d (1)
             }
           ]
         }
