@@ -9,6 +9,7 @@
 
 namespace Veterinaria_REST.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -18,7 +19,8 @@ namespace Veterinaria_REST.Models
         public string Diagnostico { get; set; }
         public Nullable<System.DateTime> FechaIngreso { get; set; }
         public Nullable<int> ID_Mascota { get; set; }
-    
+
+        [JsonIgnore]
         public virtual MASCOTA MASCOTA { get; set; }
     }
 }

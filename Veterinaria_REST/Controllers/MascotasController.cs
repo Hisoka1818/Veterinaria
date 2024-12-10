@@ -12,6 +12,7 @@ namespace Veterinaria_REST.Controllers
 {
     [EnableCors(origins: "https://localhost:44322", headers: "*", methods: "*")]
     [RoutePrefix("api/Mascotas")]
+    [AllowAnonymous]
     public class MascotasController : ApiController
     {
         private clsMascota clsMascota;
@@ -39,7 +40,8 @@ namespace Veterinaria_REST.Controllers
         [Route("ConsultarXID")]
         public MASCOTA ConsultarXID(int ID)
         {
-            return clsMascota.Consultar(ID);
+            clsMascota mascota = new clsMascota();
+            return mascota.Consultar(ID);
         }
 
         [HttpPut]

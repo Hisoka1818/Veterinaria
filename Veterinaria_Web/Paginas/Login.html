@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Veterinaria</title>
+
+    <!-- Estilos -->
+    <link href="Estilos/css/all.min.css" rel="stylesheet" />
+    <link href="Estilos/adminlte.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../Paginas/Estilos/css/Styles.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="wrapper">
+        <form action="">
+            <h1>Veterinaria</h1>
+            <div class="input-box">
+                <input type="text" id="txtUsuario" placeholder="Usuario" required>
+                <i class='bx bx-user-circle'></i>
+            </div>
+            <div class="input-box">
+                <input type="password" id="txtClave" placeholder="Clave" required>
+                <i class='bx bx-low-vision'></i>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <button type="button" class="btn btn-primary btn-block" onclick="Ingresar()">INGRESAR</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script src="../Scripts/jquery-3.4.1.min.js"></script>
+    <script src="../Scripts/bootstrap.bundle.min.js"></script>
+    <script src="Scripts/Comunes/CRUD.js"></script>
+    <script src="Scripts/Login.js"></script>
+</body>
+</html>

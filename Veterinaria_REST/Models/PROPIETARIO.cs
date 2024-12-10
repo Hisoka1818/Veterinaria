@@ -12,13 +12,16 @@ namespace Veterinaria_REST.Models
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
-    
+
+
+
     public partial class PROPIETARIO
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public PROPIETARIO()
         {
             this.MASCOTAs = new HashSet<MASCOTA>();
+            this.USUARIOs = new HashSet<USUARIO>();
         }
     
         public int ID_Propietario { get; set; }
@@ -27,9 +30,11 @@ namespace Veterinaria_REST.Models
         public string Direccion { get; set; }
         public string Correo { get; set; }
         public string Celular { get; set; }
-
         [JsonIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MASCOTA> MASCOTAs { get; set; }
+        [JsonIgnore]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<USUARIO> USUARIOs { get; set; }
     }
 }

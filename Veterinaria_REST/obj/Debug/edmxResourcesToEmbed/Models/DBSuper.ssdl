@@ -97,6 +97,14 @@
     <Property Name="Precio" Type="money" />
     <Property Name="ID_TipoMedicamento" Type="int" />
   </EntityType>
+  <EntityType Name="PERFIL">
+    <Key>
+      <PropertyRef Name="ID_Perfil" />
+    </Key>
+    <Property Name="ID_Perfil" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" />
+    <Property Name="PaginaNavegar" Type="varchar" MaxLength="50" />
+  </EntityType>
   <EntityType Name="PROPIETARIO">
     <Key>
       <PropertyRef Name="ID_Propietario" />
@@ -117,6 +125,16 @@
     <Property Name="Descripcion" Type="nvarchar" MaxLength="100" />
     <Property Name="Precio" Type="money" />
   </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
   <EntityType Name="TIPO_MEDICAMENTO">
     <Key>
       <PropertyRef Name="ID_TipoMedicamento" />
@@ -135,6 +153,25 @@
     <Property Name="Descripcion" Type="varchar" MaxLength="500" />
     <Property Name="ID_Factura" Type="int" />
     <Property Name="ID_Medicamento" Type="int" />
+  </EntityType>
+  <EntityType Name="USUARIO">
+    <Key>
+      <PropertyRef Name="ID_Usuario" />
+    </Key>
+    <Property Name="ID_Usuario" Type="int" Nullable="false" />
+    <Property Name="ID_Propietario" Type="int" />
+    <Property Name="userName" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Clave" Type="nvarchar" MaxLength="2000" Nullable="false" />
+    <Property Name="Salt" Type="nvarchar" MaxLength="2000" />
+  </EntityType>
+  <EntityType Name="USUARIO_PERFIL">
+    <Key>
+      <PropertyRef Name="Id_UsuarioPerfil" />
+    </Key>
+    <Property Name="Id_UsuarioPerfil" Type="int" Nullable="false" />
+    <Property Name="ID_Usuario" Type="int" />
+    <Property Name="ID_Perfil" Type="int" />
+    <Property Name="Activo" Type="bit" />
   </EntityType>
   <EntityType Name="VETERINARIO">
     <Key>
@@ -314,6 +351,42 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__USUARIO__ID_Prop__6FE99F9F">
+    <End Role="PROPIETARIO" Type="Self.PROPIETARIO" Multiplicity="0..1" />
+    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROPIETARIO">
+        <PropertyRef Name="ID_Propietario" />
+      </Principal>
+      <Dependent Role="USUARIO">
+        <PropertyRef Name="ID_Propietario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__USUARIO_P__ID_Pe__75A278F5">
+    <End Role="PERFIL" Type="Self.PERFIL" Multiplicity="0..1" />
+    <End Role="USUARIO_PERFIL" Type="Self.USUARIO_PERFIL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PERFIL">
+        <PropertyRef Name="ID_Perfil" />
+      </Principal>
+      <Dependent Role="USUARIO_PERFIL">
+        <PropertyRef Name="ID_Perfil" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__USUARIO_P__ID_Us__74AE54BC">
+    <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="0..1" />
+    <End Role="USUARIO_PERFIL" Type="Self.USUARIO_PERFIL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="ID_Usuario" />
+      </Principal>
+      <Dependent Role="USUARIO_PERFIL">
+        <PropertyRef Name="ID_Usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__VETERINAR__ID_Es__46E78A0C">
     <End Role="ESPECIALIZACION" Type="Self.ESPECIALIZACION" Multiplicity="0..1" />
     <End Role="VETERINARIO" Type="Self.VETERINARIO" Multiplicity="*" />
@@ -337,10 +410,14 @@
     <EntitySet Name="HOSPITALIZACION" EntityType="Self.HOSPITALIZACION" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MASCOTA" EntityType="Self.MASCOTA" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MEDICAMENTO" EntityType="Self.MEDICAMENTO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PERFIL" EntityType="Self.PERFIL" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PROPIETARIO" EntityType="Self.PROPIETARIO" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SERVICIOS_ADICIONALES" EntityType="Self.SERVICIOS_ADICIONALES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TIPO_MEDICAMENTO" EntityType="Self.TIPO_MEDICAMENTO" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TRATAMIENTO" EntityType="Self.TRATAMIENTO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USUARIO_PERFIL" EntityType="Self.USUARIO_PERFIL" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="VETERINARIO" EntityType="Self.VETERINARIO" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK__CIRUGIA__ID_Masc__5441852A" Association="Self.FK__CIRUGIA__ID_Masc__5441852A">
       <End Role="MASCOTA" EntitySet="MASCOTA" />
@@ -397,6 +474,18 @@
     <AssociationSet Name="FK__TRATAMIEN__ID_Me__5FB337D6" Association="Self.FK__TRATAMIEN__ID_Me__5FB337D6">
       <End Role="MEDICAMENTO" EntitySet="MEDICAMENTO" />
       <End Role="TRATAMIENTO" EntitySet="TRATAMIENTO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__USUARIO__ID_Prop__6FE99F9F" Association="Self.FK__USUARIO__ID_Prop__6FE99F9F">
+      <End Role="PROPIETARIO" EntitySet="PROPIETARIO" />
+      <End Role="USUARIO" EntitySet="USUARIO" />
+    </AssociationSet>
+    <AssociationSet Name="FK__USUARIO_P__ID_Pe__75A278F5" Association="Self.FK__USUARIO_P__ID_Pe__75A278F5">
+      <End Role="PERFIL" EntitySet="PERFIL" />
+      <End Role="USUARIO_PERFIL" EntitySet="USUARIO_PERFIL" />
+    </AssociationSet>
+    <AssociationSet Name="FK__USUARIO_P__ID_Us__74AE54BC" Association="Self.FK__USUARIO_P__ID_Us__74AE54BC">
+      <End Role="USUARIO" EntitySet="USUARIO" />
+      <End Role="USUARIO_PERFIL" EntitySet="USUARIO_PERFIL" />
     </AssociationSet>
     <AssociationSet Name="FK__VETERINAR__ID_Es__46E78A0C" Association="Self.FK__VETERINAR__ID_Es__46E78A0C">
       <End Role="ESPECIALIZACION" EntitySet="ESPECIALIZACION" />

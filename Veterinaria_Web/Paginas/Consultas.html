@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CONSULTAS</title>
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link href="Estilos/css/all.min.css" rel="stylesheet" />
+    <link href="Estilos/adminlte.min.css" rel="stylesheet" />
+    <!--Estilos para las tablas-->
+    <link href="Estilos/dataTables.min.css" rel="stylesheet" />
+    <link href="Estilos/dataTables.bootstrap4.min.css" rel="stylesheet" />
+</head>
+<body class="hold-transition sidebar-mini">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- left column -->
+                <div class="col-md-12" id="dvMenu">
+                </div>
+                <div class="col-md-12">
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">ADMINISTRACIÓN DE Consultas</h3>
+                        </div>
+                        <form id="frmIncapacidades">
+                            <div class="card-body">
+                                <div class="card card-gray-dark">
+                                    <div class="card-header">
+                                        <h3 class="card-title">DATOS ENTRADA DE LA CONSULTA</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="txtCodigo">ID CONSULTA</label>
+                                                    <input type="text" class="form-control" id="txtCodigo" placeholder="Código de la consulta">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="txtFecha">FECHA DE LA CITA</label>
+                                                    <input type="datetime-local" class="form-control" id="txtFecha" placeholder="fecha de la cita">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="txtEstado">ESTADO</label>
+                                                    <select class="form-control" id="txtEstado">
+                                                        <option value="">Estado de la consulta</option>
+                                                        <option value="Confirmada">Confirmada</option>
+                                                        <option value="Cancelada">Cancelada</option>
+                                                        <option value="Pendiente">Pendiente</option>
+                                                        <option value="Completada">Completada</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="txtIDMascota">ID MASCOTA</label>
+                                                    <input type="text" class="form-control" id="txtIDMascota" placeholder="ID de la mascota">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-1">
+                                                <div class="form-group">
+                                                    <img src="../Paginas/Imagenes/Buscar.jpg" onclick="BuscarMascota()" />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="txtNombre">NOMBRE Mascota</label>
+                                                    <input type="text" class="form-control" id="txtNombre" placeholder="Nombre de la mascota" disabled>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="cboVeterinario">VETERINARIO</label>
+                                                    <select id="cboVeterinario" class="form-control">
+                                                        <option value="0">SELECCIONAR</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <br />
+                                                <button type="button" id="btnInsertar" class="btn-block btn-lg btn-primary" onclick="EjecutarComando('POST', 'Insertar')">INSERTAR</button>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <br />
+                                                <button type="button" id="btnActualizar" class="btn-block btn-lg btn-primary" onclick="EjecutarComando('PUT', 'Actualizar')">ACTUALIZAR</button>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <br />
+                                                <button type="button" id="btnEliminar" class="btn-block btn-lg btn-primary" onclick="EjecutarComando('DELETE', 'Eliminar')">ELIMINAR</button>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <br />
+                                                <button type="button" id="btnConsultar" class="btn-block btn-lg btn-primary" onclick="Consultar()">CONSULTAR</button>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <table id="tblconsulta" class="table table-bordered table-striped" style="width:100%;">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>codigoconsulta</th>
+                                                            <th>fechacita</th>
+                                                            <th>estado</th>
+                                                            <th>veterinario</th>
+                                                            <th>mascota</th>
+                                                        </tr>
+                                                    </thead>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <div id="dvMensaje" class=""></div>
+                                </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="../Scripts/jquery-3.4.1.min.js"></script>
+    <script src="../Scripts/bootstrap.bundle.min.js"></script>
+    <!--Tables-->
+    <script src="../Scripts/jquery.dataTables.min.js"></script>
+    <script src="../Scripts/dataTables.bootstrap4.min.js"></script>
+    <!--Archivos comunes-->
+    <script src="Scripts/Comunes/Combos.js"></script>
+    <script src="Scripts/Comunes/Tablas.js"></script>
+    <!--Archivos de la página-->
+    <script src="Scripts/Comunes/Comunes.js"></script>
+    <script src="Scripts/Comunes/CRUD.js"></script>
+    <script src="Scripts/Menu.js"></script>
+    <script src="Scripts/Consultas.js"></script>
+</body>
+</html>

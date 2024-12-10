@@ -12,6 +12,7 @@ namespace Veterinaria_REST.Controllers
 {
     [EnableCors(origins: "https://localhost:44322", headers: "*", methods: "*")]
     [RoutePrefix("api/Propietarios")]
+    [AllowAnonymous]
     public class PropietariosController : ApiController
     {
         private clsPropietario clsPropietario;

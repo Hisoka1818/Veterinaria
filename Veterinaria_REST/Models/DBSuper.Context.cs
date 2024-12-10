@@ -40,5 +40,9 @@ namespace Veterinaria_REST.Models
         public virtual DbSet<TIPO_MEDICAMENTO> TIPO_MEDICAMENTO { get; set; }
         public virtual DbSet<TRATAMIENTO> TRATAMIENTOes { get; set; }
         public virtual DbSet<VETERINARIO> VETERINARIOs { get; set; }
+        public virtual DbSet<PERFIL> PERFILs { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<USUARIO> USUARIOs { get; set; }
+        public virtual DbSet<USUARIO_PERFIL> USUARIO_PERFIL { get; set; }
     }
 }

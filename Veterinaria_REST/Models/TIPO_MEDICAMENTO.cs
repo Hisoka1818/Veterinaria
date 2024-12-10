@@ -24,7 +24,7 @@ namespace Veterinaria_REST.Models
         public int ID_TipoMedicamento { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
-
+        [JsonIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MEDICAMENTO> MEDICAMENTOes { get; set; }
     }

@@ -35,6 +35,13 @@
         <AssociationConnector Association="VETERINARIAPROJECTModel.FK__MASCOTA__ID_Prop__3B75D760" ManuallyRouted="false" />
         <AssociationConnector Association="VETERINARIAPROJECTModel.FK__MEDICAMEN__ID_Ti__5165187F" ManuallyRouted="false" />
         <AssociationConnector Association="VETERINARIAPROJECTModel.FK__TRATAMIEN__ID_Me__5FB337D6" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="VETERINARIAPROJECTModel.PERFIL" Width="1.5" PointX="3.375" PointY="2.625" />
+        <EntityTypeShape EntityType="VETERINARIAPROJECTModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="VETERINARIAPROJECTModel.USUARIO" Width="1.5" PointX="3.375" PointY="5.375" />
+        <EntityTypeShape EntityType="VETERINARIAPROJECTModel.USUARIO_PERFIL" Width="1.5" PointX="5.625" PointY="2.5" />
+        <AssociationConnector Association="VETERINARIAPROJECTModel.FK__USUARIO_P__ID_Pe__75A278F5" />
+        <AssociationConnector Association="VETERINARIAPROJECTModel.FK__USUARIO__ID_Prop__6FE99F9F" />
+        <AssociationConnector Association="VETERINARIAPROJECTModel.FK__USUARIO_P__ID_Us__74AE54BC" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -130,6 +130,7 @@
     <Property Name="Correo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="Celular" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="MASCOTAs" Relationship="Self.FK__MASCOTA__ID_Prop__3B75D760" FromRole="PROPIETARIO" ToRole="MASCOTA" />
+    <NavigationProperty Name="USUARIOs" Relationship="VETERINARIAPROJECTModel.FK__USUARIO__ID_Prop__6FE99F9F" FromRole="PROPIETARIO" ToRole="USUARIO" />
   </EntityType>
   <EntityType Name="SERVICIOS_ADICIONALES">
     <Key>
@@ -432,5 +433,99 @@
       <End Role="MEDICAMENTO" EntitySet="MEDICAMENTOes" />
       <End Role="TRATAMIENTO" EntitySet="TRATAMIENTOes" />
     </AssociationSet>
+    <EntitySet Name="PERFILs" EntityType="VETERINARIAPROJECTModel.PERFIL" />
+    <EntitySet Name="sysdiagrams" EntityType="VETERINARIAPROJECTModel.sysdiagram" />
+    <EntitySet Name="USUARIOs" EntityType="VETERINARIAPROJECTModel.USUARIO" />
+    <EntitySet Name="USUARIO_PERFIL" EntityType="VETERINARIAPROJECTModel.USUARIO_PERFIL" />
+    <AssociationSet Name="FK__USUARIO_P__ID_Pe__75A278F5" Association="VETERINARIAPROJECTModel.FK__USUARIO_P__ID_Pe__75A278F5">
+      <End Role="PERFIL" EntitySet="PERFILs" />
+      <End Role="USUARIO_PERFIL" EntitySet="USUARIO_PERFIL" />
+    </AssociationSet>
+    <AssociationSet Name="FK__USUARIO__ID_Prop__6FE99F9F" Association="VETERINARIAPROJECTModel.FK__USUARIO__ID_Prop__6FE99F9F">
+      <End Role="PROPIETARIO" EntitySet="PROPIETARIOs" />
+      <End Role="USUARIO" EntitySet="USUARIOs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__USUARIO_P__ID_Us__74AE54BC" Association="VETERINARIAPROJECTModel.FK__USUARIO_P__ID_Us__74AE54BC">
+      <End Role="USUARIO" EntitySet="USUARIOs" />
+      <End Role="USUARIO_PERFIL" EntitySet="USUARIO_PERFIL" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="PERFIL">
+    <Key>
+      <PropertyRef Name="ID_Perfil" />
+    </Key>
+    <Property Name="ID_Perfil" Type="Int32" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PaginaNavegar" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="USUARIO_PERFIL" Relationship="VETERINARIAPROJECTModel.FK__USUARIO_P__ID_Pe__75A278F5" FromRole="PERFIL" ToRole="USUARIO_PERFIL" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="USUARIO">
+    <Key>
+      <PropertyRef Name="ID_Usuario" />
+    </Key>
+    <Property Name="ID_Usuario" Type="Int32" Nullable="false" />
+    <Property Name="ID_Propietario" Type="Int32" />
+    <Property Name="userName" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Clave" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="Salt" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PROPIETARIO" Relationship="VETERINARIAPROJECTModel.FK__USUARIO__ID_Prop__6FE99F9F" FromRole="USUARIO" ToRole="PROPIETARIO" />
+    <NavigationProperty Name="USUARIO_PERFIL" Relationship="VETERINARIAPROJECTModel.FK__USUARIO_P__ID_Us__74AE54BC" FromRole="USUARIO" ToRole="USUARIO_PERFIL" />
+  </EntityType>
+  <EntityType Name="USUARIO_PERFIL">
+    <Key>
+      <PropertyRef Name="Id_UsuarioPerfil" />
+    </Key>
+    <Property Name="Id_UsuarioPerfil" Type="Int32" Nullable="false" />
+    <Property Name="ID_Usuario" Type="Int32" />
+    <Property Name="ID_Perfil" Type="Int32" />
+    <Property Name="Activo" Type="Boolean" />
+    <NavigationProperty Name="PERFIL" Relationship="VETERINARIAPROJECTModel.FK__USUARIO_P__ID_Pe__75A278F5" FromRole="USUARIO_PERFIL" ToRole="PERFIL" />
+    <NavigationProperty Name="USUARIO" Relationship="VETERINARIAPROJECTModel.FK__USUARIO_P__ID_Us__74AE54BC" FromRole="USUARIO_PERFIL" ToRole="USUARIO" />
+  </EntityType>
+  <Association Name="FK__USUARIO_P__ID_Pe__75A278F5">
+    <End Type="VETERINARIAPROJECTModel.PERFIL" Role="PERFIL" Multiplicity="0..1" />
+    <End Type="VETERINARIAPROJECTModel.USUARIO_PERFIL" Role="USUARIO_PERFIL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PERFIL">
+        <PropertyRef Name="ID_Perfil" />
+      </Principal>
+      <Dependent Role="USUARIO_PERFIL">
+        <PropertyRef Name="ID_Perfil" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__USUARIO__ID_Prop__6FE99F9F">
+    <End Type="VETERINARIAPROJECTModel.PROPIETARIO" Role="PROPIETARIO" Multiplicity="0..1" />
+    <End Type="VETERINARIAPROJECTModel.USUARIO" Role="USUARIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROPIETARIO">
+        <PropertyRef Name="ID_Propietario" />
+      </Principal>
+      <Dependent Role="USUARIO">
+        <PropertyRef Name="ID_Propietario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__USUARIO_P__ID_Us__74AE54BC">
+    <End Type="VETERINARIAPROJECTModel.USUARIO" Role="USUARIO" Multiplicity="0..1" />
+    <End Type="VETERINARIAPROJECTModel.USUARIO_PERFIL" Role="USUARIO_PERFIL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="ID_Usuario" />
+      </Principal>
+      <Dependent Role="USUARIO_PERFIL">
+        <PropertyRef Name="ID_Usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using Veterinaria_REST.Clases;
 
 namespace Veterinaria_REST
 {
@@ -11,6 +12,10 @@ namespace Veterinaria_REST
         {
             // Web API configuration and services
             config.EnableCors();
+
+            //Habilitar el esquema de autenticación, para la validación del token
+            config.MessageHandlers.Add(new TokenValidationHandler());
+
             // Web API routes
             config.MapHttpAttributeRoutes();
 

@@ -1,11 +1,11 @@
 ﻿jQuery(function () {
-    LlenarComboXServicios("https://localhost:44362/api/Especies/LlenarCombo", "#cboEspecieId");
-    LlenarComboXServicios("https://localhost:44362/api/Propietarios/LlenarCombo", "#cboPropietarioId");
+    LlenarComboXServiciosAuth("https://localhost:44362/api/Especies/LlenarCombo", "#cboEspecieId");
+    LlenarComboXServiciosAuth("https://localhost:44362/api/Propietarios/LlenarCombo", "#cboPropietarioId");
     LlenarTabla();
 });
 
 function LlenarTabla() {
-    LlenarTablaXServicios("https://localhost:44362/api/Mascotas/LlenarTabla", "#tblMascota");
+    LlenarTablaXServiciosAuth("https://localhost:44362/api/Mascotas/LlenarTabla", "#tblMascota");
 }
 
 class Mascota {
@@ -23,14 +23,14 @@ async function EjecutarComando(Metodo, Funcion) {
     const mascota = new Mascota($("#txtMascotaID").val(), $("#txtNombre").val(), $("#txtRaza").val(),
                                 $("#txtFechaNacimiento").val(), $("#cboEspecieId").val(), $("#cboPropietarioId").val());
     let URL = "https://localhost:44362/api/Mascotas/" + Funcion;
-    await EjecutarComandoServicio(Metodo, URL, mascota);
+    await EjecutarComandoServicioAuth(Metodo, URL, mascota);
     LlenarTabla();
 }
 
 async function Consultar() {
     let ID = $('#txtMascotaID').val();
     URL = "https://localhost:44362/api/Mascotas/ConsultarXID?ID=" + ID;
-    const mascota = await ConsultarServicio(URL);
+    const mascota = await ConsultarServicioAuth(URL);
     if (mascota != null) {
         $("#txtMascotaID").val(mascota.ID_Mascota);
         $("#txtNombre").val(mascota.Nombre);

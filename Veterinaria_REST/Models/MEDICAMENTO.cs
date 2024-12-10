@@ -13,6 +13,7 @@ namespace Veterinaria_REST.Models
     using System;
     using System.Collections.Generic;
     
+
     public partial class MEDICAMENTO
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -28,11 +29,10 @@ namespace Veterinaria_REST.Models
         public Nullable<int> Stock { get; set; }
         public Nullable<decimal> Precio { get; set; }
         public Nullable<int> ID_TipoMedicamento { get; set; }
-
-        [JsonIgnore]
+    
         public virtual TIPO_MEDICAMENTO TIPO_MEDICAMENTO { get; set; }
+        [JsonIgnore] 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        [JsonIgnore]
         public virtual ICollection<TRATAMIENTO> TRATAMIENTOes { get; set; }
     }
 }
